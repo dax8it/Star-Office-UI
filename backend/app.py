@@ -369,7 +369,7 @@ def save_asset_defaults(data):
 def load_runtime_config():
     base = {
         "gemini_api_key": os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "",
-        "gemini_model": os.getenv("GEMINI_MODEL") or "gemini-3.1-flash-image-preview"
+        "gemini_model": os.getenv("GEMINI_MODEL") or "nanobanana-pro"
     }
     if os.path.exists(RUNTIME_CONFIG_FILE):
         try:
@@ -1473,7 +1473,7 @@ def gemini_config_get():
             "ok": True,
             "has_api_key": bool(key),
             "api_key_masked": masked,
-            "gemini_model": cfg.get("gemini_model") or "gemini-3.1-flash-image-preview",
+            "gemini_model": cfg.get("gemini_model") or "nanobanana-pro",
         })
     except Exception as e:
         return jsonify({"ok": False, "msg": str(e)}), 500
@@ -1487,7 +1487,7 @@ def gemini_config_set():
     try:
         data = request.get_json(silent=True) or {}
         api_key = (data.get("api_key") or "").strip()
-        model = (data.get("model") or "").strip() or "gemini-3.1-flash-image-preview"
+        model = (data.get("model") or "").strip() or "nanobanana-pro"
         payload = {"gemini_model": model}
         if api_key:
             payload["gemini_api_key"] = api_key
