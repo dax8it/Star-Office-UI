@@ -30,6 +30,8 @@ assets/bg-history/
 assets/home-favorites/
 frontend/office_bg.png
 frontend/*.bak
+layers/
+desktop-pet/src-tauri/icons/*Logo.png
 
 # Electron local build artifacts
 electron-shell/node_modules/
